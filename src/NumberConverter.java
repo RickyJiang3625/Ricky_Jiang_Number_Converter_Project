@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class NumberConverter {
     int[] digits;
     int base;
@@ -27,15 +29,22 @@ public class NumberConverter {
     }
 
     public int[] convertToDecimal() {
-        return null;
-    }
+        int[] sum = new int[1];
+        int y =0;
+        for(int i=digits.length-1;i>=0;i--){
+            sum[0]+= digits[i]*Math.pow(base,y);
+            y++;
+        }
+        return sum;}
 
     public int[] convertToBinary() {
         return null;
     }
 
     public int[] convertToOctal() {
-        return null;
+        String notReversed="";
+        int quotient=Integer.parseInt(Arrays.toString(digits));
+
     }
 }
 
