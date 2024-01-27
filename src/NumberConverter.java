@@ -32,7 +32,7 @@ public class NumberConverter {
         int[] sum = new int[1];
         int y =0;
         for(int i=digits.length-1;i>=0;i--){
-            sum[0]+= digits[i]*Math.pow(base,y);
+            sum[0]+= (int) (digits[i]*Math.pow(base,y));
             y++;
         }
         return sum;}
@@ -43,8 +43,37 @@ public class NumberConverter {
 
     public int[] convertToOctal() {
         String notReversed="";
-        int quotient=Integer.parseInt(Arrays.toString(digits));
+        String quotient="";
+        int realQuotient=0;
+        if(base==2){
+            int[] sum = new int[1];
+            int y =0;
+            for(int i=digits.length-1;i>=0;i--){
+                sum[0]+= (int) (digits[i]*Math.pow(base,y));
+                y++;
+            }
+            realQuotient=sum[0];
+        }
+        else {
+            for (int i = 0; i < digits.length; i++) {
+                quotient += Integer.toString(digits[i]);
+            }
+            realQuotient = Integer.parseInt(quotient);
+        }
+        while(realQuotient != 0){
+            notReversed+=Integer.toString(realQuotient%8);
+            realQuotient=realQuotient/8;
+        }
 
+        String correctOrder="";
+    for(int i=notReversed.length();i>0;i--){
+        correctOrder+=notReversed.substring(i-1,i);
+
+    }
+    int[] number =new int[1];
+    int correctNumber=Integer.parseInt(correctOrder);
+    number[0]=correctNumber;
+    return number;
     }
 }
 
