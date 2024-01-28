@@ -19,11 +19,22 @@ class ConverterRunner {
         System.out.print("Enter your number: ");
         String number = s.nextLine();
         int n = Integer.parseInt(number);
-        while(base==8 && (n==9 || n==8 )){
+        while(base==8 && (number.contains("9") || number.contains("8") )){
             System.out.print("Enter a valid number: ");
             number=s.nextLine();
             n=Integer.parseInt(number);
         }
+        int ten=10;
+        if(base==2){
+            for(int i=2;i<ten;i++){
+                while(number.contains(Integer.toString(i))){
+                    System.out.print("Enter a valid number: ");
+                    number=s.nextLine();
+                    n=Integer.parseInt(number);
+                }
+            }
+        }
+
 
 
 
@@ -34,14 +45,14 @@ class ConverterRunner {
         System.out.println("\n\nDigit array: " + Arrays.toString(digits));
         System.out.println("Number: " + nc.displayOriginalNumber());
         if(base==8){
-        System.out.println("Decimal: "+ Arrays.toString(nc.convertToDecimal()));
-        System.out.println("Binary: "+Arrays.toString(nc.convertToBinary()));}
+        System.out.println("Decimal number: "+ Arrays.toString(nc.convertToDecimal()).replace("[", "").replace("]", ""));
+        System.out.println("Binary number: "+Arrays.toString(nc.convertToBinary()).replace("[", "").replace("]", ""));}
         else if(base==10){
-        System.out.println("Octal: "+Arrays.toString(nc.convertToOctal()));
-        System.out.println("Binary: "+Arrays.toString(nc.convertToBinary()));}
+        System.out.println("Octal number: "+Arrays.toString(nc.convertToOctal()).replace("[", "").replace("]", ""));
+        System.out.println("Binary number: "+Arrays.toString(nc.convertToBinary()).replace("[", "").replace("]", ""));}
         else {
-            System.out.println("Octal: "+Arrays.toString(nc.convertToOctal()));
-            System.out.println("Decimal: "+Arrays.toString(nc.convertToDecimal()));
+            System.out.println("Octal number: "+Arrays.toString(nc.convertToOctal()).replace("[", "").replace("]", ""));
+            System.out.println("Decimal number: "+Arrays.toString(nc.convertToDecimal()).replace("[", "").replace("]", ""));
 
         }
     }
