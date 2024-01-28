@@ -34,10 +34,14 @@ class ConverterRunner {
         System.out.println("\n\nDigit array: " + Arrays.toString(digits));
         System.out.println("Number: " + nc.displayOriginalNumber());
         if(base==8){
-        System.out.println("Decimal: "+ Arrays.toString(nc.convertToDecimal()));}
+        System.out.println("Decimal: "+ Arrays.toString(nc.convertToDecimal()));
+        System.out.println("Binary: "+Arrays.toString(nc.convertToBinary()));}
         else if(base==10){
-        System.out.println("Octal: "+Arrays.toString(nc.convertToOctal()));}
+        System.out.println("Octal: "+Arrays.toString(nc.convertToOctal()));
+        System.out.println("Binary: "+Arrays.toString(nc.convertToBinary()));}
         else {
+            System.out.println("Octal: "+Arrays.toString(nc.convertToOctal()));
+            System.out.println("Decimal: "+Arrays.toString(nc.convertToDecimal()));
 
         }
     }
