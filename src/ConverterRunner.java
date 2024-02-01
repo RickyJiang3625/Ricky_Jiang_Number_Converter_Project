@@ -46,7 +46,17 @@ class ConverterRunner {
         System.out.println("Number: " + nc.displayOriginalNumber());
         if(base==8){
         System.out.println("Decimal number: "+ Arrays.toString(nc.convertToDecimal()).replace("[", "").replace("]", ""));
-        System.out.println("Binary number: "+Arrays.toString(nc.convertToBinary()).replace("[", "").replace("]", ""));}
+        boolean greaterLimitBaseEight=false;
+            try {
+                nc.convertToBinary();
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Binary: "+nc.getCorrectBinaryNumberIfGreaterThanLimit());
+                greaterLimitBaseEight=true;
+            }
+            if(greaterLimitBaseEight==false){
+                System.out.println("Binary number: "+Arrays.toString(nc.convertToBinary()).replace("[", "").replace("]", ""));}
+        }
         else if(base==10){
             boolean greaterLimitBaseTen=false;
         System.out.println("Octal number: "+Arrays.toString(nc.convertToOctal()).replace("[", "").replace("]", ""));
