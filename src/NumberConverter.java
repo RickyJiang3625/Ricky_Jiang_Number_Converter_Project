@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class NumberConverter {
     int[] digits;
     int base;
+    String correctBinaryNumberIfGreaterThanLimit="";
 
     public NumberConverter(int number, int base) {
         String numberAsString = Integer.toString(number);
@@ -67,8 +68,10 @@ public class NumberConverter {
 
         }
         int[] number =new int[1];
+        correctBinaryNumberIfGreaterThanLimit=correctOrder;
         int correctNumber=Integer.parseInt(correctOrder);
         number[0]=correctNumber;
+
         return number;
     }
 
@@ -105,6 +108,10 @@ public class NumberConverter {
     int correctNumber=Integer.parseInt(correctOrder);
     number[0]=correctNumber;
     return number;
+    }
+
+    public String getCorrectBinaryNumberIfGreaterThanLimit() {
+        return correctBinaryNumberIfGreaterThanLimit;
     }
 }
 
